@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Bicycle Alarm System</string>
+    <string name="openweathermap_api_key">YOUR_OPENWEATHERMAP_API_KEY</string>
+</resources>
