@@ -1,18 +1,19 @@
 package com.example.bicyclealarmsystem;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * The main activity for the Bicycle Alarm System application.
  * This activity handles the user interface and the core logic for arming,
  * disarming, and triggering the alarm.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private boolean isArmed = false;
+    private Button armButton;
 
     /**
      * Called when the activity is first created.
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button armButton = findViewById(R.id.armButton);
+        armButton = findViewById(R.id.armButton);
         armButton.setOnClickListener(new View.OnClickListener() {
             /**
              * Called when the arm/disarm button is clicked.
@@ -53,6 +54,7 @@ public class MainActivity extends Activity {
      */
     public void armAlarm() {
         isArmed = true;
+        armButton.setText("Disarm");
     }
 
     /**
@@ -61,6 +63,7 @@ public class MainActivity extends Activity {
      */
     public void disarmAlarm() {
         isArmed = false;
+        armButton.setText("Arm");
     }
 
     /**
