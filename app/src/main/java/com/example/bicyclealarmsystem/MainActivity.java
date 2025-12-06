@@ -13,6 +13,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
     private boolean isArmed = false;
+    private Button armButton;
 
     /**
      * Called when the activity is first created.
@@ -29,7 +30,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button armButton = findViewById(R.id.armButton);
+        armButton = findViewById(R.id.armButton);
+        armButton.setText("Arm");
         armButton.setOnClickListener(new View.OnClickListener() {
             /**
              * Called when the arm/disarm button is clicked.
@@ -53,6 +55,7 @@ public class MainActivity extends Activity {
      */
     public void armAlarm() {
         isArmed = true;
+        armButton.setText("Disarm");
     }
 
     /**
@@ -61,6 +64,7 @@ public class MainActivity extends Activity {
      */
     public void disarmAlarm() {
         isArmed = false;
+        armButton.setText("Arm");
     }
 
     /**
@@ -71,5 +75,9 @@ public class MainActivity extends Activity {
         if (isArmed) {
             // Trigger the alarm
         }
+    }
+
+    public boolean isArmed() {
+        return isArmed;
     }
 }
